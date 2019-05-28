@@ -56,7 +56,22 @@ def move():
         if j > 0:
             massiv[i][j], massiv[i][j - 1] = massiv[i][j - 1], massiv[i][j]
 
+def won():
+    f = 1
+    v = 0
+    for i in range(n):
+        for j in range(n):
+            v = v + 1
+            if i == n - 1 and j == n - 1:
+                v = 0
+            if massiv[i][j] != v:
+                f = 0
+    if f == 1:
+        print('Вы выиграли.')
+    return f
+
 while True:
     move()
     draw()
-
+    if won() == 1:
+        break
